@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analýza: vlaky, doprava a MHD</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1b1f23; --muted:#5b6570; --line:#d9dee3; --card:#f6f8fa; --link:#0b5fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14181c; --fg:#e6eaee; --muted:#9aa5b1; --line:#2c343c; --card:#1c2228; --link:#6ea2ff; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font:16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+  p.sub { color: var(--muted); margin: 0 0 16px; }
+  a { color: var(--link); }
+  img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  .files { display:flex; flex-wrap:wrap; gap:8px; }
+  .files a { padding:6px 12px; border:1px solid var(--line); border-radius:999px; background:var(--card);
+             text-decoration:none; font-size:.9rem; }
+  .scroll { overflow-x:auto; }
+  #report table { border-collapse: collapse; font-size: .85rem; margin: 8px 0; }
+  #report th, #report td { border:1px solid var(--line); padding:4px 8px; text-align:left; }
+  #report th { background: var(--card); }
+  #report h1 { display:none; }
+  #report code { background: var(--card); padding: 1px 4px; border-radius: 4px; }
+  .note { background: var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 14px; font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Analýza: vlaky, doprava a MHD</h1>
+  <p class="sub">Zjednotené dáta z repozitárov idos-meskanie, idos-grafy, ba-livetraffic a mhd-stats. Prepočítava sa automaticky každý deň.</p>
+
+  <div class="note">Dáta sa prekrývajú len niekoľko dní, takže ide o prieskumné zistenia, nie o dôkaz. Korelácia nie je príčinnosť.</div>
+
+  <h2>Súbory na stiahnutie</h2>
+  <div class="files">
+    <a href="zjednotene_hodinove.csv">zjednotené hodinové dáta (CSV)</a>
+    <a href="korelacie.csv">korelácie (CSV)</a>
+    <a href="korelacie_lag.csv">oneskorené korelácie (CSV)</a>
+    <a href="report.md">report (Markdown)</a>
+  </div>
+
+  <h2>Korelácie po odstránení denného rytmu</h2>
+  <p><img src="korelacie_bez_periodicity.png" alt="Korelácie po odstránení dennej periodicity"></p>
+
+  <h2>Surové korelácie</h2>
+  <p><img src="korelacie_surove.png" alt="Surové korelácie"></p>
+
+  <h2>Hodinové rady</h2>
+  <p><img src="casove_rady.png" alt="Hodinové rady"></p>
+
+  <h2>Report</h2>
+  <div id="report" class="scroll"><p>Načítavam…</p></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script>
+  (function () {
+    var box = document.getElementById("report");
+    fetch("report.md", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function (t) {
+        if (window.marked) { box.innerHTML = window.marked.parse(t); }
+        else { var pre = document.createElement("pre"); pre.textContent = t; box.replaceChildren(pre); }
+      })
+      .catch(function () { box.textContent = "Report sa zatiaľ nepodarilo načítať."; });
+  })();
+</script>
+</body>
+</html>
