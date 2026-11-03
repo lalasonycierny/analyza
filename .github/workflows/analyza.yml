@@ -1,0 +1,32 @@
+name: analyza
+
+on:
+  schedule:
+    - cron: "30 5 * * *"   # denne o 05:30 UTC
+  workflow_dispatch:        # aj rucne cez Actions -> Run workflow
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalacia kniznic
+        run: pip install pandas numpy scipy matplotlib
+
+      - name: Stiahnutie dat a vypocet
+        run: python analyza.py --out docs
+
+      - name: Ulozenie vysledkov
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add docs
+          git diff --cached --quiet || (git commit -m "aktualizacia analyzy" && git push)
