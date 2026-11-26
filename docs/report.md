@@ -4,23 +4,23 @@
 
 | Zdroj | od | do | hodín s dátami |
 |---|---|---|---|
-| vlaky_meskania | 2026-10-23 08:00 | 2026-11-25 16:00 | 578 |
+| vlaky_meskania | 2026-10-23 08:00 | 2026-11-26 16:00 | 602 |
 | vlaky_obsadenost | 2026-10-20 13:00 | 2026-11-01 14:00 | 243 |
-| doprava_BA | 2026-10-25 17:00 | 2026-11-25 09:00 | 594 |
+| doprava_BA | 2026-10-25 17:00 | 2026-11-26 12:00 | 597 |
 | mhd_BA | 2026-10-25 05:00 | 2026-10-27 20:00 | 51 |
 
 Hodín, kde sú naraz vlaky (meškania), obsadenosť aj doprava: **45**.
 
 ## Čistenie dát
 
-- meskania: riadkov v subore: 93340
-- meskania: agregovane riadky (vyhodene): 17555
-- meskania: riadky, kde sa povodne Meskanie_Minuty lisilo od textu: 13397
+- meskania: riadkov v subore: 98465
+- meskania: agregovane riadky (vyhodene): 18265
+- meskania: riadky, kde sa povodne Meskanie_Minuty lisilo od textu: 14306
 - meskania: riadky vyhodene pre zmenu casu (DST): 80
 - obsadenost: riadkov v subore: 14577
 - obsadenost: riadky vyhodene pre zmenu casu (DST): 77
-- doprava: riadkov flow.csv: 5463
-- doprava: riadkov incidents.csv: 20945
+- doprava: riadkov flow.csv: 5490
+- doprava: riadkov incidents.csv: 21073
 - mhd: riadkov v daily_hour.csv: 51
 - mhd: riadky vyhodene pre zmenu casu (DST): 0
 
@@ -30,21 +30,21 @@ Zobrazené sú dvojice s aspoň 12 spoločnými hodinami. `rho` = Spearmanova ko
 
 | A | B | n | rho | q | rho bez denného rytmu | q |
 |---|---|---|---|---|---|---|
-| vlaky: priemer meskania (strop 180) [min] | MHD: % spojov nacas | 45 | -0.77 | 0.000 | -0.04 | 0.951 |
-| doprava: sucet zdrzania z incidentov [s] | MHD: priemerne meskanie [min] | 37 | -0.65 | 0.000 | -0.03 | 0.951 |
-| vlaky: priemer meskania (strop 180) [min] | MHD: % spojov s meskanim >=5 min | 45 | 0.64 | 0.000 | 0.06 | 0.935 |
-| doprava: sucet zdrzania z incidentov [s] | MHD: % spojov s meskanim >=5 min | 37 | -0.64 | 0.000 | 0.01 | 0.985 |
-| vlaky: priemer meskania (strop 180) [min] | MHD: priemerne meskanie [min] | 45 | 0.64 | 0.000 | 0.04 | 0.951 |
-| vlaky: median meskania [min] | MHD: % spojov nacas | 45 | -0.55 | 0.000 | -0.30 | 0.113 |
-| doprava: pocet kolon | MHD: priemerne meskanie [min] | 37 | -0.54 | 0.001 | -0.04 | 0.951 |
-| doprava: sucet zdrzania z kolon [s] | MHD: priemerne meskanie [min] | 37 | -0.54 | 0.001 | -0.01 | 0.985 |
-| doprava: sucet zdrzania z kolon [s] | MHD: % spojov s meskanim >=5 min | 37 | -0.53 | 0.002 | 0.03 | 0.951 |
-| doprava: pocet kolon | MHD: % spojov s meskanim >=5 min | 37 | -0.53 | 0.002 | 0.00 | 0.985 |
-| vlaky: priemer meskania (strop 180) [min] | doprava: pocet kolon | 435 | -0.49 | 0.000 | 0.11 | 0.081 |
-| vozne: priemerna obsadenost [%] | doprava: podiel pomalych bodov [%] | 141 | 0.48 | 0.000 | 0.29 | 0.006 |
-| vozne: podiel vozov >=80 % obsadenych [%] | doprava: podiel pomalych bodov [%] | 141 | 0.48 | 0.000 | 0.31 | 0.005 |
-| vozne: priemerna obsadenost [%] | doprava: rychlost / volna rychlost | 141 | -0.48 | 0.000 | -0.20 | 0.071 |
-| vlaky: priemer meskania (strop 180) [min] | doprava: sucet zdrzania z kolon [s] | 435 | -0.48 | 0.000 | 0.13 | 0.032 |
+| vlaky: priemer meskania (strop 180) [min] | MHD: % spojov nacas | 45 | -0.77 | 0.000 | -0.02 | 0.965 |
+| doprava: sucet zdrzania z incidentov [s] | MHD: priemerne meskanie [min] | 37 | -0.65 | 0.000 | -0.03 | 0.965 |
+| vlaky: priemer meskania (strop 180) [min] | MHD: % spojov s meskanim >=5 min | 45 | 0.64 | 0.000 | 0.06 | 0.940 |
+| doprava: sucet zdrzania z incidentov [s] | MHD: % spojov s meskanim >=5 min | 37 | -0.64 | 0.000 | 0.01 | 0.984 |
+| vlaky: priemer meskania (strop 180) [min] | MHD: priemerne meskanie [min] | 45 | 0.64 | 0.000 | 0.04 | 0.965 |
+| vlaky: median meskania [min] | MHD: % spojov nacas | 45 | -0.55 | 0.000 | -0.31 | 0.104 |
+| doprava: pocet kolon | MHD: priemerne meskanie [min] | 37 | -0.54 | 0.001 | -0.04 | 0.965 |
+| doprava: sucet zdrzania z kolon [s] | MHD: priemerne meskanie [min] | 37 | -0.54 | 0.001 | -0.01 | 0.984 |
+| doprava: sucet zdrzania z kolon [s] | MHD: % spojov s meskanim >=5 min | 37 | -0.53 | 0.002 | 0.03 | 0.965 |
+| doprava: pocet kolon | MHD: % spojov s meskanim >=5 min | 37 | -0.53 | 0.002 | 0.00 | 0.984 |
+| vlaky: priemer meskania (strop 180) [min] | doprava: pocet kolon | 438 | -0.49 | 0.000 | 0.11 | 0.085 |
+| vozne: priemerna obsadenost [%] | doprava: podiel pomalych bodov [%] | 141 | 0.48 | 0.000 | 0.29 | 0.007 |
+| vlaky: priemer meskania (strop 180) [min] | doprava: sucet zdrzania z kolon [s] | 438 | -0.48 | 0.000 | 0.13 | 0.033 |
+| vozne: podiel vozov >=80 % obsadenych [%] | doprava: podiel pomalych bodov [%] | 141 | 0.48 | 0.000 | 0.32 | 0.003 |
+| vozne: priemerna obsadenost [%] | doprava: rychlost / volna rychlost | 141 | -0.48 | 0.000 | -0.20 | 0.058 |
 
 ## Oneskorené vzťahy (lag)
 
@@ -52,12 +52,12 @@ Kladný lag = hodnota X spred *lag* hodín sa porovnáva s Y teraz. Zobrazený j
 
 | X predchádza | Y nasleduje | najlepší lag [h] | n | rho | rho (surové) |
 |---|---|---|---|---|---|
-| doprava: cas prejazdu / volny cas | vlaky: median meskania [min] | 3 | 433 | 0.14 | 0.10 |
-| doprava: podiel pomalych bodov [%] | vlaky: podiel s meskanim >=15 min [%] | 2 | 434 | 0.20 | 0.37 |
-| doprava: sucet zdrzania z kolon [s] | vlaky: median meskania [min] | 3 | 433 | 0.18 | 0.08 |
-| vozne: priemerna obsadenost [%] | vlaky: median meskania [min] | 0 | 99 | 0.12 | -0.08 |
+| doprava: cas prejazdu / volny cas | vlaky: median meskania [min] | 3 | 436 | 0.14 | 0.10 |
+| doprava: podiel pomalych bodov [%] | vlaky: podiel s meskanim >=15 min [%] | 2 | 437 | 0.20 | 0.38 |
+| doprava: sucet zdrzania z kolon [s] | vlaky: median meskania [min] | 3 | 436 | 0.18 | 0.08 |
+| vozne: priemerna obsadenost [%] | vlaky: median meskania [min] | 0 | 99 | 0.11 | -0.08 |
 | doprava: cas prejazdu / volny cas | MHD: priemerne meskanie [min] | -3 | 40 | 0.16 | -0.36 |
-| MHD: priemerne meskanie [min] | vlaky: median meskania [min] | -3 | 47 | 0.29 | 0.41 |
+| MHD: priemerne meskanie [min] | vlaky: median meskania [min] | -3 | 47 | 0.30 | 0.41 |
 
 ## Na čo si dať pozor
 
